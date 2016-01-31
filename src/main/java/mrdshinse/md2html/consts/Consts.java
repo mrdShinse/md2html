@@ -48,7 +48,7 @@ public interface Consts {
     /**
      * Directory path for putting temporary files.
      */
-    final String TMP_DIR = CURRENT_DIR + DELIMITER + "tmp";
+    final String TMP_DIR = DATA_DIR + DELIMITER + "tmp";
     /**
      * Directory path for putting markdown files.
      */
@@ -62,6 +62,10 @@ public interface Consts {
      */
     final String RESULT_DIR = DATA_DIR + DELIMITER + "result";
 
+    /**
+     * Extention of markdown files.
+     */
+    final String EXTENTION_MARKDOWN = ".md";
     /**
      * Extention of html files.
      */

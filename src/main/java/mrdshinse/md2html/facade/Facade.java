@@ -21,38 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.md2html.cui;
-
-import mrdshinse.md2html.facade.Execution;
-import mrdshinse.md2html.facade.Facade;
+package mrdshinse.md2html.facade;
 
 /**
- * Class that contains main method.<br/>
- * When running by Cui, this class will be called.
+ * Interface of Facade classes.
  *
  * @author mrdShinse
  */
-public class Cui {
+public interface Facade {
 
-    private Facade facade;
-
-    /**
-     * Main method.
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        new Cui().exe(args);
-    }
-
-    /**
-     * execute process.
-     *
-     * @param args
-     */
-    public void exe(String[] args) {
-        facade = new Execution();
-
-        facade.exe();
-    }
+    void exe();
 }
