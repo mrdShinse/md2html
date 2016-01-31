@@ -21,45 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.combiner;
-
-import java.io.File;
-import java.io.IOException;
-import mrdshinse.doc_tool.consts.Consts;
-import mrdshinse.doc_tool.logger.LogHelper;
-import mrdshinse.doc_tool.util.FileUtil;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+package mrdshinse.md2html.service;
 
 /**
  *
  * @author mrdShinse
  */
-public class HtmlCombinerImpl implements HtmlCombiner {
+public interface InitializeService {
 
-    /**
-     * Logger
-     */
-    private static final LogHelper LOG = new LogHelper(HtmlCombinerImpl.class);
-
-    @Override
-    public File combine(File base, File add) {
-        Document doc = null;
-
-        try {
-            doc = Jsoup.parse(base, "UTF-8");
-        } catch (IOException ex) {
-            LOG.error(ex);
-        }
-
-        if (doc == null) {
-            LOG.warn("combine(): get null argument. Returned empty File.");
-            return new File("");
-        }
-        Element el = doc.body();
-        el.append(FileUtil.toString(add));
-        return FileUtil.create(new File(Consts.RESULT_DIR + Consts.DELIMITER + FileUtil.getNoExtName(add) + Consts.EXTENTION_HTML), doc.html());
-    }
-
+    public void exe();
 }

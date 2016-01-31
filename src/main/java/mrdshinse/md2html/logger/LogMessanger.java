@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.logger;
+package mrdshinse.md2html.logger;
 
 /**
  * Class for create log message.

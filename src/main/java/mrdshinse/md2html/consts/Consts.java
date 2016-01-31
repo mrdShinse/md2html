@@ -1,4 +1,4 @@
-package mrdshinse.doc_tool.consts;
+package mrdshinse.md2html.consts;
 
 /*
  * The MIT License
@@ -26,19 +26,44 @@ package mrdshinse.doc_tool.consts;
 import java.io.File;
 
 /**
+ * Const class of md2html.
  *
  * @author mrdShinse
  */
 public interface Consts {
 
+    /**
+     * Running directory.
+     */
     final String CURRENT_DIR = System.getProperty("user.dir");
+    /**
+     * Path separator that don't depend on execution environment.
+     */
     final String DELIMITER = File.separator;
 
+    /**
+     * Directory path for putting data.
+     */
     final String DATA_DIR = CURRENT_DIR + DELIMITER + "data";
+    /**
+     * Directory path for putting temporary files.
+     */
     final String TMP_DIR = CURRENT_DIR + DELIMITER + "tmp";
+    /**
+     * Directory path for putting markdown files.
+     */
     final String MARKDOWN_DIR = DATA_DIR + DELIMITER + "markdown";
+    /**
+     * Directory path for putting template HTML files.
+     */
     final String TEMPLATE_DIR = DATA_DIR + DELIMITER + "template";
+    /**
+     * Directory path for putting processed result files.
+     */
     final String RESULT_DIR = DATA_DIR + DELIMITER + "result";
 
+    /**
+     * Extention of html files.
+     */
     final String EXTENTION_HTML = ".html";
 }

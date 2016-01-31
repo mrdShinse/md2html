@@ -21,40 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service.impl;
+package mrdshinse.md2html.service;
 
 import java.io.File;
-import java.io.IOException;
-import mrdshinse.doc_tool.converter.MarkdownConverter;
-import mrdshinse.doc_tool.converter.MarkdownConverterImpl;
-import mrdshinse.doc_tool.logger.LogHelper;
-import mrdshinse.doc_tool.service.CombertService;
 
 /**
  *
  * @author mrdShinse
  */
-public class CombertServiceImpl implements CombertService {
+public interface CombinerService {
 
-    /**
-     * Logger
-     */
-    private static final LogHelper LOG = new LogHelper(CombertServiceImpl.class);
-
-    private MarkdownConverter converter;
-
-    public CombertServiceImpl() {
-        this.converter = new MarkdownConverterImpl();
-    }
-
-    @Override
-    public void exe(File file) {
-        LOG.debug("");
-
-        File result = converter.convert(file);
-        try {
-            result.createNewFile();
-        } catch (IOException ex) {
-        }
-    }
+    public void exe(File template, File add);
 }

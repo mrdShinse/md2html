@@ -21,21 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.converter;
+package mrdshinse.md2html.converter;
 
 import java.io.File;
+import mrdshinse.md2html.consts.Consts;
+import mrdshinse.md2html.logger.LogHelper;
+import mrdshinse.md2html.util.FileUtil;
+import org.markdownj.MarkdownProcessor;
 
 /**
+ * Implementation class of {@link MarkdownConverter}
  *
  * @author mrdShinse
  */
-public interface MarkdownConverter {
+public class MarkdownConverterImpl implements MarkdownConverter {
 
     /**
-     * convert markdown file.
-     *
-     * @param file markdown file
-     * @return converted file
+     * Logger
      */
-    public File convert(File file);
+    private static final LogHelper LOG = new LogHelper(MarkdownConverterImpl.class);
+
+    @Override
+    public File convert(File file) {
+        if (file == null) {
+            LOG.warn("convert(): get null argument. Returned original argument.");
+            return file;
+        }
+        MarkdownProcessor processor = new MarkdownProcessor();
+        String html = processor.markdown(FileUtil.toString(file));
+        File retFile = new File(Consts.TMP_DIR + Consts.DELIMITER + FileUtil.getNoExtName(file) + Consts.EXTENTION_HTML);
+        FileUtil.create(retFile, html);
+        return retFile;
+    }
+
 }

@@ -21,13 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service;
+package mrdshinse.md2html.combiner;
+
+import java.io.File;
 
 /**
+ * This class Convertes two html files.
  *
  * @author mrdShinse
  */
-public interface FinishingService {
+public interface HtmlCombiner {
 
-    public void exe();
+    /**
+     *
+     * @param base
+     * @param add
+     * @return
+     */
+    public File combine(File base, File add);
 }

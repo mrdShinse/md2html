@@ -21,15 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service;
+package mrdshinse.md2html.converter;
 
 import java.io.File;
 
 /**
+ * This class convert markdown file to HTML file.
  *
  * @author mrdShinse
  */
-public interface CombertService {
+public interface MarkdownConverter {
 
-    public void exe(File file);
+    /**
+     * convert markdown file.
+     *
+     * @param file markdown file
+     * @return converted file
+     */
+    public File convert(File file);
 }

@@ -21,21 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.cui;
+package mrdshinse.md2html.cui;
 
 import java.io.File;
-import mrdshinse.doc_tool.consts.Consts;
-import mrdshinse.doc_tool.service.CombertService;
-import mrdshinse.doc_tool.service.CombinerService;
-import mrdshinse.doc_tool.service.FinishingService;
-import mrdshinse.doc_tool.service.InitializeService;
-import mrdshinse.doc_tool.service.impl.CombertServiceImpl;
-import mrdshinse.doc_tool.service.impl.CombinerServicempl;
-import mrdshinse.doc_tool.service.impl.FinishingServiceImpl;
-import mrdshinse.doc_tool.service.impl.InitializeServiceImpl;
-import mrdshinse.doc_tool.util.FileUtil;
+import mrdshinse.md2html.consts.Consts;
+import mrdshinse.md2html.service.CombertService;
+import mrdshinse.md2html.service.CombinerService;
+import mrdshinse.md2html.service.FinishingService;
+import mrdshinse.md2html.service.InitializeService;
+import mrdshinse.md2html.service.impl.CombertServiceImpl;
+import mrdshinse.md2html.service.impl.CombinerServicempl;
+import mrdshinse.md2html.service.impl.FinishingServiceImpl;
+import mrdshinse.md2html.service.impl.InitializeServiceImpl;
+import mrdshinse.md2html.util.FileUtil;
 
 /**
+ * Class that contains main method.<br/>
+ * When running by Cui, this class will be called.
  *
  * @author mrdShinse
  */
@@ -46,10 +48,18 @@ public class Cui {
     private final CombinerService COMBINE;
     private final FinishingService FINISH;
 
+    /**
+     * Main method.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         new Cui().exe(args);
     }
 
+    /**
+     * Default constructor.
+     */
     public Cui() {
         this.INIT = new InitializeServiceImpl();
         this.COMBERT = new CombertServiceImpl();
@@ -58,7 +68,7 @@ public class Cui {
     }
 
     /**
-     * execute tool.
+     * execute process.
      *
      * @param args
      */

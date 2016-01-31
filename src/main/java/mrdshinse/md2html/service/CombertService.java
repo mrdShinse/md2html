@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service;
+package mrdshinse.md2html.service;
 
 import java.io.File;
 
@@ -29,7 +29,7 @@ import java.io.File;
  *
  * @author mrdShinse
  */
-public interface CombinerService {
+public interface CombertService {
 
-    public void exe(File template, File add);
+    public void exe(File file);
 }

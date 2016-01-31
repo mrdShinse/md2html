@@ -21,36 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.converter;
-
-import java.io.File;
-import mrdshinse.doc_tool.consts.Consts;
-import mrdshinse.doc_tool.logger.LogHelper;
-import mrdshinse.doc_tool.util.FileUtil;
-import org.markdownj.MarkdownProcessor;
+package mrdshinse.md2html.service;
 
 /**
  *
  * @author mrdShinse
  */
-public class MarkdownConverterImpl implements MarkdownConverter {
+public interface FinishingService {
 
-    /**
-     * Logger
-     */
-    private static final LogHelper LOG = new LogHelper(MarkdownConverterImpl.class);
-
-    @Override
-    public File convert(File file) {
-        if (file == null) {
-            LOG.warn("convert(): get null argument. Returned original argument.");
-            return file;
-        }
-        MarkdownProcessor processor = new MarkdownProcessor();
-        String html = processor.markdown(FileUtil.toString(file));
-        File retFile = new File(Consts.TMP_DIR + Consts.DELIMITER + FileUtil.getNoExtName(file) + Consts.EXTENTION_HTML);
-        FileUtil.create(retFile, html);
-        return retFile;
-    }
-
+    public void exe();
 }

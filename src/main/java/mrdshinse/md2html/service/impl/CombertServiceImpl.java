@@ -21,45 +21,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service.impl;
+package mrdshinse.md2html.service.impl;
 
 import java.io.File;
-import mrdshinse.doc_tool.consts.Consts;
-import mrdshinse.doc_tool.logger.LogHelper;
-import mrdshinse.doc_tool.service.InitializeService;
+import java.io.IOException;
+import mrdshinse.md2html.converter.MarkdownConverter;
+import mrdshinse.md2html.converter.MarkdownConverterImpl;
+import mrdshinse.md2html.logger.LogHelper;
+import mrdshinse.md2html.service.CombertService;
 
 /**
+ * Implimentation class of {@link CombertService}
  *
  * @author mrdShinse
  */
-public class InitializeServiceImpl implements InitializeService {
+public class CombertServiceImpl implements CombertService {
 
     /**
      * Logger
      */
-    private static final LogHelper LOG = new LogHelper(InitializeServiceImpl.class);
+    private static final LogHelper LOG = new LogHelper(CombertServiceImpl.class);
+
+    private MarkdownConverter converter;
+
+    public CombertServiceImpl() {
+        this.converter = new MarkdownConverterImpl();
+    }
 
     @Override
-    public void exe() {
+    public void exe(File file) {
         LOG.debug("");
 
-        File mdDir = new File(Consts.MARKDOWN_DIR);
-        if (!mdDir.exists()) {
-            mdDir.mkdirs();
-        }
-
-        File tmpDir = new File(Consts.TMP_DIR);
-        if (!tmpDir.exists()) {
-            tmpDir.mkdirs();
-        }
-
-        File templateDir = new File(Consts.TEMPLATE_DIR);
-        if (!templateDir.exists()) {
-            templateDir.mkdirs();
-        }
-        File resultDir = new File(Consts.RESULT_DIR);
-        if (!resultDir.exists()) {
-            resultDir.mkdirs();
+        File result = converter.convert(file);
+        try {
+            result.createNewFile();
+        } catch (IOException ex) {
         }
     }
 }

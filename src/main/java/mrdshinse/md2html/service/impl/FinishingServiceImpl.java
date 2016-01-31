@@ -21,13 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service;
+package mrdshinse.md2html.service.impl;
+
+import mrdshinse.md2html.logger.LogHelper;
+import mrdshinse.md2html.service.FinishingService;
 
 /**
+ * Implimentation class of {@link FinishingService}
  *
  * @author mrdShinse
  */
-public interface InitializeService {
+public class FinishingServiceImpl implements FinishingService {
 
-    public void exe();
+    /**
+     * Logger
+     */
+    private static final LogHelper LOG = new LogHelper(FinishingServiceImpl.class);
+
+    @Override
+    public void exe() {
+        LOG.debug("");
+    }
 }

@@ -21,16 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service.impl;
+package mrdshinse.md2html.service.impl;
 
 import java.io.File;
 import java.io.IOException;
-import mrdshinse.doc_tool.combiner.HtmlCombiner;
-import mrdshinse.doc_tool.combiner.HtmlCombinerImpl;
-import mrdshinse.doc_tool.logger.LogHelper;
-import mrdshinse.doc_tool.service.CombinerService;
+import mrdshinse.md2html.combiner.HtmlCombiner;
+import mrdshinse.md2html.combiner.HtmlCombinerImpl;
+import mrdshinse.md2html.logger.LogHelper;
+import mrdshinse.md2html.service.CombinerService;
 
 /**
+ * Implimentation class of {@link CombinerService}
  *
  * @author mrdShinse
  */

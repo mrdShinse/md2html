@@ -21,14 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.util;
+package mrdshinse.md2html.util;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import mrdshinse.doc_tool.logger.LogHelper;
+import mrdshinse.md2html.logger.LogHelper;
 import org.apache.commons.io.FileUtils;
 
 /**

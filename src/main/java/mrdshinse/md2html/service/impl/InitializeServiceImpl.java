@@ -21,24 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package mrdshinse.doc_tool.service.impl;
+package mrdshinse.md2html.service.impl;
 
-import mrdshinse.doc_tool.logger.LogHelper;
-import mrdshinse.doc_tool.service.FinishingService;
+import java.io.File;
+import mrdshinse.md2html.consts.Consts;
+import mrdshinse.md2html.logger.LogHelper;
+import mrdshinse.md2html.service.InitializeService;
 
 /**
+ * Implimentation class of {@link InitializeService}
  *
  * @author mrdShinse
  */
-public class FinishingServiceImpl implements FinishingService {
+public class InitializeServiceImpl implements InitializeService {
 
     /**
      * Logger
      */
-    private static final LogHelper LOG = new LogHelper(FinishingServiceImpl.class);
+    private static final LogHelper LOG = new LogHelper(InitializeServiceImpl.class);
 
     @Override
     public void exe() {
         LOG.debug("");
+
+        File mdDir = new File(Consts.MARKDOWN_DIR);
+        if (!mdDir.exists()) {
+            mdDir.mkdirs();
+        }
+
+        File tmpDir = new File(Consts.TMP_DIR);
+        if (!tmpDir.exists()) {
+            tmpDir.mkdirs();
+        }
+
+        File templateDir = new File(Consts.TEMPLATE_DIR);
+        if (!templateDir.exists()) {
+            templateDir.mkdirs();
+        }
+        File resultDir = new File(Consts.RESULT_DIR);
+        if (!resultDir.exists()) {
+            resultDir.mkdirs();
+        }
     }
 }
