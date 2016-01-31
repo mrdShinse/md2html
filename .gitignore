@@ -1,0 +1,7 @@
+data/*
+target/*
+logs/*
+tmp/*
+nbactions.xml
+nb-configuration.xml
+.DS_Store
